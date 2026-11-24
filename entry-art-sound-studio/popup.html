@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    body { width: 320px; font-family: sans-serif; padding: 12px; margin: 0; color: #222; }
+    h3 { margin: 0 0 10px; font-size: 15px; }
+    .box { border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+    label { display: block; font-size: 12px; margin-top: 6px; font-weight: 600; }
+    input[type="text"], input[type="number"], input[type="color"] { width: 100%; box-sizing: border-box; margin-top: 3px; }
+    button { margin-top: 8px; padding: 6px 10px; border: none; border-radius: 6px; background: #2563eb; color: #fff; cursor: pointer; font-size: 12px; }
+    .row { display: flex; gap: 6px; align-items: center; }
+    .swatch { width: 28px; height: 28px; border-radius: 6px; border: 1px solid #cbd5e1; cursor: pointer; }
+    .muted { font-size: 11px; color: #64748b; }
+  </style>
+</head>
+<body>
+  <h3>엔트리 아트 & 사운드 스튜디오 v1.1.0</h3>
+
+  <div class="box">
+    <strong>🎨 스포이드 & 조화 팔레트</strong>
+    <div class="row" style="margin-top:6px;">
+      <input type="color" id="baseColor" value="#3b82f6" style="width:48px; height:32px; padding:0;" />
+      <input type="text" id="hexOut" readonly />
+    </div>
+    <div id="paletteRow" class="row" style="margin-top:8px;"></div>
+    <div id="copyStatus" class="muted">색상 상자를 누르면 HEX 코드가 복사됩니다.</div>
+  </div>
+
+  <div class="box">
+    <strong>📐 480×270 화면 크기 계산기</strong>
+    <label>원본 크기(px) & 엔트리 크기(%)</label>
+    <div class="row">
+      <input type="number" id="origPx" value="100" />
+      <input type="number" id="entryPct" value="100" />
+    </div>
+    <div id="calcOut" class="muted" style="margin-top:6px;">실제 화면 크기: 100px (무대 480×270 기준)</div>
+  </div>
+
+  <div class="box">
+    <strong>🎵 BPM 박자 타이머</strong>
+    <label>BPM 입력</label>
+    <div class="row">
+      <input type="number" id="bpmInput" value="120" min="20" max="300" />
+      <button id="tapBtn" type="button">박자 탭</button>
+    </div>
+    <div id="bpmOut" class="muted" style="margin-top:6px;">1박자: 0.500초 / 반박자: 0.250초 / 1마디: 2.000초</div>
+  </div>
+
+  <div class="box">
+    <strong>🖼️ 엔트리 이야기 배경 커스텀</strong>
+    <label>배경 색상</label>
+    <input type="color" id="storyBgColor" value="#eef4ff" style="height:30px; padding:0;" />
+    <label>배경 이미지 URL (선택)</label>
+    <input type="text" id="storyBgUrl" placeholder="https://... 이미지 주소" />
+    <label><input type="checkbox" id="storyGlass" checked /> 게시글 카드 반투명 효과</label>
+    <button id="saveStoryStyle" type="button">이야기 배경 저장</button>
+  </div>
+
+  <div class="box">
+    <strong>🪟 작품 만들기 미니 피드 창</strong>
+    <label><input type="checkbox" id="toggleMiniStory" checked /> 작품 만들기(/ws)에 엔트리 이야기 창 띄우기</label>
+    <button id="saveMiniStory" type="button">미니 창 설정 저장</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

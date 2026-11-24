@@ -1,0 +1,28 @@
+﻿{
+  "manifest_version": 3,
+  "name": "엔트리 아트 & 사운드 스튜디오",
+  "version": "1.1.0",
+  "description": "스포이드·조화 팔레트, 480x270 화면 계산기, BPM 박자 타이머, 엔트리 이야기 배경 커스텀 및 작품 만들기 미니 피드 창",
+  "permissions": ["storage", "declarativeNetRequest"],
+  "host_permissions": ["*://*.playentry.org/*"],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ruleset_entry_frame",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "엔트리 아트 & 사운드 스튜디오"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.playentry.org/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
